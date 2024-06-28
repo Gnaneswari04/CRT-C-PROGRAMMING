@@ -1,0 +1,32 @@
+give username and passsword for only three attempts both the username and password should correct means then processed otherwise if the password is incorrect and then it will give you are having two attempts give me the c program for this question
+
+
+// Online C compiler to run C program online
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char username[20], password[20];
+    int attempts = 3;
+    const char *correct_username = "admin";
+    const char *correct_password = "password";
+
+    while (attempts > 0) {
+        printf("Enter username: ");
+        scanf("%19s", username);
+
+        printf("Enter password: ");
+        scanf("%19s", password);
+
+        if (strcmp(username, correct_username) == 0 && strcmp(password, correct_password) == 0) {
+            printf("Login successful!\n");
+            return 0;
+        } else if (strcmp(username, correct_username) != 0 || strcmp(password, correct_password) != 0) {
+            attempts--;
+            printf("Invalid username or password. You have %d attempts left.\n", attempts);
+        }
+    }
+
+    printf("Login failed. Maximum attempts reached.\n");
+    return 1;
+}
